@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #ft_list div {
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <button id="new">New</button>
+    <div id="ft_list"></div>
+
+    <script>
+        function saveList(){
+            document.cookie = "todos=" + encodeURIComponent($("#ft_list").html());
+        }
+
+        function loadList(){
+            let match = document.cookie.match(/(?:^|; )todos=([^;]*)/);
+            if(match){
+                $("#ft_list").html(decodeURIComponent(match[1]));
+            }
+        }
+
+        $(document).ready(function(){
+            loadList();
+
+            $("#new").click(function(){
+                let todo = prompt("Enter new TO DO:");
+                if(todo){
+                    let item = $("<div>").text(todo);
+                    item.click(function(){
+                        if(confirm("Delete this TO DO?")){
+                            $(this).remove();
+                            saveList();
+                        }
+                    });
+                    $("#ft_list").prepend(item);
+                    saveList();
+                }
+            });
+
+            $("#ft_list").children("div").click(function(){
+                if(confirm("Delete this TO DO?")){
+                    $(this).remove();
+                    saveList();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

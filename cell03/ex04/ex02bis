@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>It's over 9000</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <input type="number" id="left" placeholder="Left operand">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="number" id="right" placeholder="Right operand">
+    <button id="calc">Try me!</button>
+
+    <script>
+        function calculate() {
+            let a = parseInt($("#left").val());
+            let b = parseInt($("#right").val());
+            let op = $("#operator").val();
+
+            if(isNaN(a) || isNaN(b) || a < 0 || b < 0){
+                alert("Error :(");
+                console.log("Error :(");
+                return;
+            }
+
+            if((op === "/" || op === "%") && b === 0){
+                alert("It’s over 9000!");
+                console.log("It’s over 9000!");
+                return;
+            }
+
+            let result = eval(a + op + b);
+            alert(result);
+            console.log(result);
+        }
+
+        $(document).ready(function(){
+            $("#calc").click(calculate);
+            setInterval(function(){
+                alert("Please, use me...");
+            }, 30000);
+        });
+    </script>
+</body>
+</html>

@@ -44,7 +44,7 @@
 
         // mouseleave = shrink
         balloon.addEventListener('mouseleave', () => {
-            size -= 5;
+            size -= 10;
             if (size < 200) size = 200;
             colorIndex = (colorIndex - 1 + colors.length) % colors.length;
             updateBalloon();
