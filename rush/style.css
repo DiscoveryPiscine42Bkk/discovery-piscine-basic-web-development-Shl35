@@ -1,6 +1,4 @@
-/* ===============================
-   🌌 ธีมพื้นฐาน
-================================== */
+
 body {
   margin: 0;
   padding: 0;
@@ -8,9 +6,7 @@ body {
   color: #f0f0f0;
 }
 
-/* ===============================
-   🏠 หน้าแรก (Rush Project)
-================================== */
+
 body.main-page {
   height: 100vh;
   background: linear-gradient(135deg, #1f1c2c, #928dab);
@@ -70,15 +66,13 @@ body.main-page {
   }
 }
 
-/* ===============================
-   🧾 Resume Page
-================================== */
+
 .resume-theme {
   background: linear-gradient(135deg, #1f1c2c, #928dab);
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* 🔝 Top Navigation */
+
 .top-nav {
   display: flex;
   align-items: center;
@@ -115,7 +109,7 @@ body.main-page {
   background-color: #555;
 }
 
-/* 💼 Resume Layout */
+
 .resume-container {
   max-width: 800px;
   margin: auto;
@@ -191,7 +185,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 📱 Responsive Resume */
+
 @media (max-width: 768px) {
   .resume-container {
     margin: 20px;
